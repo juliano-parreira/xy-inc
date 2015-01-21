@@ -24,6 +24,8 @@ import br.com.jcp.xyinc.web.model.PointOfInterestModel;
 import br.com.jcp.xyinc.web.rest.exception.CustomWebApplicationException;
 import br.com.jcp.xyinc.web.rest.exception.CustomWebApplicationException.ErrorCode;
 import br.com.jcp.xyinc.web.rest.param.CenterXParam;
+import br.com.jcp.xyinc.web.rest.param.CenterYParam;
+import br.com.jcp.xyinc.web.rest.param.MaxDistanceParam;
 import br.com.jcp.xyinc.web.rest.vo.PointOfInterestAndDistanceVo;
 import br.com.jcp.xyinc.web.utils.Constants;
 
@@ -98,8 +100,8 @@ public class PointOfInterestResource {
 	@Produces(Constants.APPLICATION_JSON_CHARSET_UTF8)
 	public Response getPoinOfInterestListFiltered(
 			@QueryParam(Constants.QUERY_PARAM_CENTER_X) CenterXParam qCenterX,
-			@QueryParam(Constants.QUERY_PARAM_CENTER_Y) CenterXParam qCenterY,
-			@QueryParam(Constants.QUERY_PARAM_MAX_DISTANCE) CenterXParam qMaxDistance
+			@QueryParam(Constants.QUERY_PARAM_CENTER_Y) CenterYParam qCenterY,
+			@QueryParam(Constants.QUERY_PARAM_MAX_DISTANCE) MaxDistanceParam qMaxDistance
 			) {
 		try {
 			

@@ -189,8 +189,9 @@ public class PointOfInterestResource {
 				(pointOfInterestAndDistanceVo.getName() == null) ||
 				(pointOfInterestAndDistanceVo.getPositionX() == null) ||
 				(pointOfInterestAndDistanceVo.getPositionY() == null) ||
-				(pointOfInterestAndDistanceVo.getPositionX() < 0) ||
-				(pointOfInterestAndDistanceVo.getPositionX() < 0)
+				(pointOfInterestAndDistanceVo.getName().length() > Constants.MAX_NAME_LENGTH) ||
+				(pointOfInterestAndDistanceVo.getPositionX() < Constants.MIN_COORDINATE_VALUE) ||
+				(pointOfInterestAndDistanceVo.getPositionY() < Constants.MIN_COORDINATE_VALUE)
 				) {
 			throw new CustomWebApplicationException(ErrorCode.PARAM_INVALID, Constants.MSG_POINT_OF_INTEREST_INVALID);
 		}

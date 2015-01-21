@@ -16,6 +16,9 @@ public interface Constants {
 	public static final String QUERY_PARAM_CENTER_Y = "y";
 	public static final String QUERY_PARAM_MAX_DISTANCE = "d-max";
 	
+	public static final int MIN_COORDINATE_VALUE = 0;
+	public static final int MAX_NAME_LENGTH = 100;
+	
 	/*
 	 * Messages
 	 */

@@ -4,6 +4,9 @@ import javax.ws.rs.WebApplicationException;
 
 import br.com.jcp.xyinc.web.utils.Constants;
 
+/**
+ * Param representation for Maximum Distance.
+ */
 public class MaxDistanceParam extends AbstractParam<Integer> {
 
 	private static final long serialVersionUID = -5832560275459664948L;

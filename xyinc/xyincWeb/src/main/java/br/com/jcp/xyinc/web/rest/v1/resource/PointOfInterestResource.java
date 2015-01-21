@@ -31,8 +31,6 @@ import br.com.jcp.xyinc.web.utils.Constants;
 
 /**
  * REST Web Service
- *
- * @author julianoparreira
  */
 @Path("v1/points")
 public class PointOfInterestResource {
@@ -48,6 +46,26 @@ public class PointOfInterestResource {
 	public PointOfInterestResource() {
 	}
 	
+	/**
+	 * Register a new Point of Interest.
+	 * 
+	 * Example:
+	 * 
+	 * Request:
+	 *   http://localhost:8080/xyincWeb/rest/v1/points
+	 *   POST
+	 *   Content-Type: application/json;charset=utf-8
+	 *   {"name":"Local","positionX":10,"positionY":20}
+	 * 
+	 * Response:
+	 *   Status 201
+	 *   Content-Type: application/json;charset=utf-8
+	 *   {"id":10,"name":"Park","positionX":58,"positionY":56}
+	 * 
+	 * 
+	 * @param pPointOfInterestAndDistanceVo - JSON representing the Point of Interest
+	 * 
+	 */
     @POST
     @Produces(Constants.APPLICATION_JSON_CHARSET_UTF8)
     @Consumes(Constants.APPLICATION_JSON_CHARSET_UTF8)
@@ -55,8 +73,6 @@ public class PointOfInterestResource {
 			PointOfInterestAndDistanceVo pPointOfInterestAndDistanceVo
 			) {
     	try {
-			System.out.println("BODY: " + pPointOfInterestAndDistanceVo);
-			
 			checkCreatePointOfInterestForNulls(pPointOfInterestAndDistanceVo);
 			
 			PointOfInterest pointOfInterest = pointOfInterestModel.createProduct(pPointOfInterestAndDistanceVo);
@@ -72,6 +88,23 @@ public class PointOfInterestResource {
 		}
 	}
 
+    /**
+     * List all Points of Interest registered.
+	 * 
+	 * Example:
+	 * 
+	 * Request:
+	 *   http://localhost:8080/xyincWeb/rest/v1/points
+	 *   GET
+	 * 
+	 * Response:
+	 *   Status 200
+	 *   Content-Type: application/json;charset=utf-8
+	 *   [{"id":1,"name":"Lanchonete","positionX":27,"positionY":12},
+	 *   ...,
+	 *   {"id":10,"name":"Park","positionX":58,"positionY":56}]
+	 *   
+     */
 	@GET
 	@Produces(Constants.APPLICATION_JSON_CHARSET_UTF8)
 	public Response getPoinOfInterestList() {
@@ -95,6 +128,29 @@ public class PointOfInterestResource {
 		}
 	}
 
+	/**
+	 * List the Points Of Interest and its distance from coordinates "centerX" and "centerY", respecting a maximum distance "maxDistance".
+	 * The sort order of closest to farthest.
+	 * 
+	 * Example:
+	 * 
+	 * Request:
+	 *   http://localhost:8080/xyincWeb/rest/v1/points/filtered?x=20&y=10&d-max=10
+	 *   GET
+	 * 
+	 * Response:
+	 *   Status 200
+	 *   Content-Type: application/json;charset=utf-8
+	 *   [{"id":6,"name":"Supermercado","positionX":23,"positionY":6,"distance":5.0},
+	 *   ...,
+	 *   {"id":5,"name":"Pub","positionX":12,"positionY":8,"distance":8.2}]
+	 *   
+	 * 
+	 * @param centerX - non negative integer
+	 * @param centerY - non negative integer
+	 * @param maxDistance - non negative integer
+	 * 
+	 */
 	@GET
 	@Path("filtered")
 	@Produces(Constants.APPLICATION_JSON_CHARSET_UTF8)
@@ -108,10 +164,6 @@ public class PointOfInterestResource {
 			if ((qCenterX == null) || (qCenterY == null) || (qMaxDistance == null)) {
 				throw new CustomWebApplicationException(ErrorCode.PARAM_NOT_FOUND, Constants.MSG_POINT_AND_DISTANCE_LIST_PARAM_NOT_FOUND);
 			}
-			
-			System.out.println(Constants.QUERY_PARAM_CENTER_X + ": " + qCenterX.getValue());
-			System.out.println(Constants.QUERY_PARAM_CENTER_Y + ": " + qCenterY.getValue());
-			System.out.println(Constants.QUERY_PARAM_MAX_DISTANCE + ": " + qMaxDistance.getValue());
 			
 			List<PointOfInterestAndDistanceDto> pointsAndDistanceList = pointOfInterestModel.findFiltered(qCenterX.getValue(), qCenterY.getValue(), qMaxDistance.getValue());
 			

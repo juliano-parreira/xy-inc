@@ -13,7 +13,9 @@ import br.com.jcp.xyinc.web.utils.Constants;
 
 import com.sun.jersey.api.client.ClientResponse.Status;
 
-
+/**
+ * Custom exception with a default response representation as JSON.
+ */
 public class CustomWebApplicationException extends WebApplicationException {
 	
 	private static final long serialVersionUID = -6408226642049205640L;
@@ -58,7 +60,10 @@ public class CustomWebApplicationException extends WebApplicationException {
 		return builder.build();
 	}
 	
-	// USAR CODIGOS DE ERRO COM 4 DIGITOS PARA NAO COLIDIR COM OS HTTP_STATUS
+	/*
+	 * Internal error codes.
+	 * Use 4 digit codes to avoid conflict with HTTP_STATUS.
+	 */
 	public enum ErrorCode {
 		
 		UNKNOWN_ERROR 				(1000, "SERVER ERROR", Status.INTERNAL_SERVER_ERROR), 

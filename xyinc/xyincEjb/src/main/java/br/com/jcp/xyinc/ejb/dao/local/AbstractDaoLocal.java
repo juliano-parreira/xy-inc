@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+/**
+ * Abstract DAO interface with declaration of basic methods.
+ */
 @Local
 public interface AbstractDaoLocal<T> {
 	

@@ -2,6 +2,9 @@
 
 import br.com.jcp.xyinc.ejb.servicelocator.ServiceLocator;
 
+/**
+ * EJB Factory
+ */
 public class FactoryEJB {
 	
 	public static Object newEJBLocal(Class<?> daoClass) {

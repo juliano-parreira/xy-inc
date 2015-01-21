@@ -4,6 +4,9 @@ import javax.ws.rs.WebApplicationException;
 
 import br.com.jcp.xyinc.web.utils.Constants;
 
+/**
+ * Param representation for Y Coordinate.
+ */
 public class CenterYParam extends AbstractParam<Integer> {
 
 	private static final long serialVersionUID = 1887331957594876226L;

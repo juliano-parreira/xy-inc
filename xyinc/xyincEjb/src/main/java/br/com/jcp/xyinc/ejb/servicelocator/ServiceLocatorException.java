@@ -5,30 +5,25 @@ import java.util.logging.Logger;
 
 
 /**
- * Implementação do Design Pattern Service Locator.
+ * Design Pattern Service Locator implementation.
  */
 public class ServiceLocatorException extends RuntimeException {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5800383025104076836L;
-	/**
-	 * 
-	 */
+	
 	private static Logger log = Logger.getLogger("ServiceLocatorException");
 
 	/**
-	 * Constructor padrão de Exceção do Service Locator
+	 * Default constructor
 	 */
 	public ServiceLocatorException() {
 	}
 
 	/**
-	 * Constructor de Exceção do Service Locator
+	 * Constructor
 	 * 
 	 * @param msg
-	 *            mensagem de exceção
+	 *            exception message
 	 */
 	public ServiceLocatorException(String msg) {
 		super(msg);
@@ -36,28 +31,28 @@ public class ServiceLocatorException extends RuntimeException {
 	}
 
 	/**
-	 * Constructor de Exceção do Service Locator
+	 * Constructor
 	 * 
 	 * @param msg
-	 *            mensagem de exceção
+	 *            exception message
 	 * @param cause
-	 *            causa
+	 *            exception cause
 	 */
 	public ServiceLocatorException(String msg, Throwable cause) {
 
-		super(msg, cause); // JDK 1.3 ou superior
+		super(msg, cause); // JDK 1.3 or above
 		log.log(Level.INFO, msg, cause);
 	}
 
 	/**
-	 * Constructor de Exceção do Service Locator
+	 * Constructor
 	 * 
 	 * @param cause
-	 *            causa
+	 *            exception cause
 	 */
 	public ServiceLocatorException(Throwable cause) {
 
-		super(cause); // JDK 1.3 ou superior
+		super(cause); // JDK 1.3 or above
 		log.log(Level.INFO, "Cause: " ,  cause);
 	}
 }

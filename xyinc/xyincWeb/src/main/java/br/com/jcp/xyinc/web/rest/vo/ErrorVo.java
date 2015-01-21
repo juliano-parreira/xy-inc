@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * ErrorVo
+ */
 @XmlRootElement
 public class ErrorVo implements Serializable{
 	

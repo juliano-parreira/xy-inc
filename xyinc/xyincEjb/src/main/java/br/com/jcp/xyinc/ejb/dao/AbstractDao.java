@@ -14,7 +14,9 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import br.com.jcp.xyinc.ejb.dao.local.AbstractDaoLocal;
 
-
+/**
+ * Abstract DAO with implementation of basic methods.
+ */
 public abstract class AbstractDao<T> implements AbstractDaoLocal<T>  {
     private Class<T> entityClass;
 
@@ -102,6 +104,5 @@ public abstract class AbstractDao<T> implements AbstractDaoLocal<T>  {
         cq.select(getEntityManager().getCriteriaBuilder().count(rt));
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return (Long) q.getSingleResult();
-    }
-    
+    }   
 }

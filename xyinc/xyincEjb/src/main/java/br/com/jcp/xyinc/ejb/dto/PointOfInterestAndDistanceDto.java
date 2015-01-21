@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
+/**
+ * DTO for PointOfInterest entity with the distance from a given coordinate (X,Y).
+ */
 @Entity
 public class PointOfInterestAndDistanceDto  implements java.io.Serializable {
 	

@@ -7,6 +7,9 @@ import javax.ws.rs.WebApplicationException;
 import br.com.jcp.xyinc.web.rest.exception.CustomWebApplicationException;
 import br.com.jcp.xyinc.web.rest.exception.CustomWebApplicationException.ErrorCode;
 
+/**
+ * Abstract param representation.
+ */
 public abstract class AbstractParam<V> implements Serializable {
 	
 	private static final long serialVersionUID = -2974153580333267105L;
@@ -16,8 +19,6 @@ public abstract class AbstractParam<V> implements Serializable {
 
 	public AbstractParam(String param, String paramName, boolean isHeaderParam) throws WebApplicationException {
 		this.originalParam = param;
-		
-		System.out.println("[AbstractParam] param: [" + param +"] - paramName: [" + paramName +"] - isHeaderParam: [" + isHeaderParam + "]");
 		
 		try {
 			this.value = parse(param);

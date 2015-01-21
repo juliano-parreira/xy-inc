@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * VO used to represent Point Of Interest with or without distance.
+ */
 @XmlRootElement
 public class PointOfInterestAndDistanceVo implements Serializable{
 	

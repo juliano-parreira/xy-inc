@@ -18,8 +18,7 @@ import br.com.jcp.xyinc.ejb.dto.PointOfInterestAndDistanceDto;
 import br.com.jcp.xyinc.ejb.entity.PointOfInterest;
 
 /**
- *
- * @author Juliano Parreira
+ * DAO implementation for Point of Interest.
  */
 @Stateless
 public class PointOfInterestDao extends AbstractDao<PointOfInterest> implements PointOfInterestDaoLocal {
@@ -44,12 +43,6 @@ public class PointOfInterestDao extends AbstractDao<PointOfInterest> implements 
 	@Override
 	public List<PointOfInterestAndDistanceDto> findFiltered(int centerX, int centerY, int maxDistance) {
 		try {
-//			Query q = getEntityManager().createQuery(
-//					" SELECT new PointOfInterestAndDistanceDto(o, ROUND( SQRT( POW( ( o.positionX - :centerX) , 2 ) + POW( ( o.positionY - :centerY ) , 2 ) ), 1) as distance) " +
-//							" FROM PointOfInterest o " +
-//							" WHERE SQRT( POW( ( o.positionX - :centerX) , 2 ) + POW( ( o.positionY - :centerY ) , 2 ) ) <= :maxDistance " +
-//							" ORDER BY distance "
-//					);
 			Query q = getEntityManager().createNativeQuery(QUERY_POINT_OF_INTEREST_AND_DISTANCE, PointOfInterestAndDistanceDto.class);
 			
 			q.setParameter("1", centerX);
@@ -60,7 +53,6 @@ public class PointOfInterestDao extends AbstractDao<PointOfInterest> implements 
 			
 			@SuppressWarnings("unchecked")
 			List<PointOfInterestAndDistanceDto> list = q.getResultList();
-			System.out.println("PointOfInterestDAO findFiltered list: " + list);
 			return list;
 		} catch (RuntimeException re) {
 			throw re;

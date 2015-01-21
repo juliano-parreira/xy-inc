@@ -10,6 +10,9 @@ import br.com.jcp.xyinc.web.utils.Constants;
 
 import com.sun.jersey.api.client.ClientResponse.Status;
 
+/**
+ * ExceptionHandler to show its responses as JSON.
+ */
 @Provider
 public class DefaultExceptionHandler implements ExceptionMapper<WebApplicationException> {
 	

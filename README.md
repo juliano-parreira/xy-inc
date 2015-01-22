@@ -17,6 +17,7 @@ O repositório possui duas pastas:
 - xyinc: projeto Java contendo dois módulos, sendo um para acesso ao banco de dados e o outro a camada de serviços.
 
 O projeto Java deve ser importado para dentro do Eclipse.
+
 Os documentos referentes ao banco de dados devem ser usados para a criação e configuração de acesso ao mesmo, conforme será mencionado ao longo deste documento.
 
 ### II. Banco de Dados

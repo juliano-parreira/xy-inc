@@ -15,6 +15,7 @@ O repositório possui duas pastas:
 
 - database: scripts, modelos e demais arquivos referentes ao banco de dados.
 - xyinc: projeto Java contendo dois módulos, sendo um para acesso ao banco de dados e o outro a camada de serviços.
+- tests: evidências de testes.
 
 O projeto Java deve ser importado para dentro do Eclipse.
 
@@ -38,7 +39,9 @@ Crie as configurações de "JDBC Connection Pools" e "JDBC Resources" conforme d
 
 ### IV. Serviços REST + JSON
 
-São três serviços REST + JSON, conforme descrito abaixo:
+São três serviços REST + JSON cujo acesso pode ser feito via qualquer HTTP Client. Nos testes foi utilizado um app do Chrome: Advanced Rest Client.
+
+Segue abaixo a descrição de cada serviço e o formato da requisição:
 
 #### 1. Cadastro de POIs:
 
@@ -63,6 +66,13 @@ Status Codes:
 - 201: POI cadastrado
 - 400: parâmetro inválido ou não informado (POI)
 ```
+Sendo os campos no JSON:
+```sh
+-id: ID do POI no banco de dados
+-name: Nome do local (máx. 100 caracteres)
+-positionX: coordenada X (inteiro não negativo)
+-positionY: coordenada Y (inteiro não negativo)
+```
 
 #### 2. Listar todos os POIs:
 
@@ -85,6 +95,13 @@ Status Codes:
 ```sh
 - 200: lista de POIs encontrados
 - 404: nenhum POI encontrado
+```
+Sendo os campos no JSON:
+```sh
+-id: ID do POI no banco de dados
+-name: Nome do local (máx. 100 caracteres)
+-positionX: coordenada X (inteiro não negativo)
+-positionY: coordenada Y (inteiro não negativo)
 ```
 
 #### 3. Listar os POIs por proximidade:
@@ -114,6 +131,14 @@ Status Codes:
 - 200: lista de POIs e distâncias encontrados
 - 404: nenhum POI encontrado
 - 400: parâmetro inválido ou não informado (x, y ou d-max)
+```
+Sendo os campos no JSON:
+```sh
+-id: ID do POI no banco de dados
+-name: Nome do local (máx. 100 caracteres)
+-positionX: coordenada X (inteiro não negativo)
+-positionY: coordenada Y (inteiro não negativo)
+-distance: distância até o ponto de referência
 ```
 
 ### V. Resposta de Erro

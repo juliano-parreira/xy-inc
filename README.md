@@ -67,11 +67,11 @@ Status Codes:
 - 400: parâmetro inválido ou não informado (POI)
 ```
 Sendo os campos no JSON:
-```sh
--id: ID do POI no banco de dados
--name: Nome do local (máx. 100 caracteres)
--positionX: coordenada X (inteiro não negativo)
--positionY: coordenada Y (inteiro não negativo)
+```
+- id: ID do POI no banco de dados
+- name: Nome do local (máx. 100 caracteres)
+- positionX: coordenada X (inteiro não negativo)
+- positionY: coordenada Y (inteiro não negativo)
 ```
 
 #### 2. Listar todos os POIs:
@@ -97,11 +97,11 @@ Status Codes:
 - 404: nenhum POI encontrado
 ```
 Sendo os campos no JSON:
-```sh
--id: ID do POI no banco de dados
--name: Nome do local (máx. 100 caracteres)
--positionX: coordenada X (inteiro não negativo)
--positionY: coordenada Y (inteiro não negativo)
+```
+- id: ID do POI no banco de dados
+- name: Nome do local (máx. 100 caracteres)
+- positionX: coordenada X (inteiro não negativo)
+- positionY: coordenada Y (inteiro não negativo)
 ```
 
 #### 3. Listar os POIs por proximidade:
@@ -134,11 +134,11 @@ Status Codes:
 ```
 Sendo os campos no JSON:
 ```sh
--id: ID do POI no banco de dados
--name: Nome do local (máx. 100 caracteres)
--positionX: coordenada X (inteiro não negativo)
--positionY: coordenada Y (inteiro não negativo)
--distance: distância até o ponto de referência
+- id: ID do POI no banco de dados
+- name: Nome do local (máx. 100 caracteres)
+- positionX: coordenada X (inteiro não negativo)
+- positionY: coordenada Y (inteiro não negativo)
+- distance: distância até o ponto de referência
 ```
 
 ### V. Resposta de Erro

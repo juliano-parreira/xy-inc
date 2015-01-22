@@ -1,0 +1,25 @@
+-- JDBC Connection Pools
+-- -----------------------------------------------------------------------------------
+
+-- Pool Name		:	mysql_xyincdb_xyinccPool
+-- Resource Type	:	javax.sql.DataSource
+-- Database Driver Vendor	:	MySql
+
+-- Properties:
+-- -----------
+
+-- URL			:	jdbc:mysql://localhost:3306/xyincdb?zeroDateTimeBehavior=convertToNull
+-- serverName	:	localhost
+-- databaseName	:	xyincdb
+-- user			:	xyincc
+-- password		:	xyinc#731$EPI
+-- logger		:	com.mysql.jdbc.log.StandardLogger
+-- portNumber	:	3306
+
+
+
+-- JDBC Resources
+-- -----------------------------------------------------------------------------------
+
+-- JNDI Name	:	jdbc/xyincdb
+-- Pool Name	:	mysql_xyincdb_xyinccPool

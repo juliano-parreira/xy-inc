@@ -109,9 +109,14 @@ Status Codes:
 
 ### Resposta de Erro
 
-As respostas diferentes de sucesso são padronizadas em um JSON com código de erro e uma mensagem, conforme exemplo a seguir:
+As respostas diferentes de sucesso são padronizadas em um JSON com código de erro e uma mensagem, conforme exemplos a seguir:
 ```sh
 Status: 404
 Content-Type: application/json;charset=utf-8
 Body: {"errorCode":1102,"message":"No points of interest found for given parameters (x: 100, y: 115, d-max: 1)"}
+```
+```sh
+Status: 400
+Content-Type: application/json;charset=utf-8
+Body: {"errorCode":1004,"message":"Invalid parameter \"d-max\": \"-1\" (Invalid value)"}
 ```

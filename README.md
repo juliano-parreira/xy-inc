@@ -120,3 +120,8 @@ Status: 400
 Content-Type: application/json;charset=utf-8
 Body: {"errorCode":1004,"message":"Invalid parameter \"d-max\": \"-1\" (Invalid value)"}
 ```
+```sh
+Status: 405
+Content-Type: application/json;charset=utf-8
+Body: {"errorCode":405,"message":"METHOD_NOT_ALLOWED"}
+```

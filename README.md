@@ -1,7 +1,7 @@
 # xy-inc
 Zup - Processo Seletivo
 
-### Introdução
+### I. Introdução
 
 O desenvolvimento foi feito usando:
 
@@ -11,7 +11,15 @@ O desenvolvimento foi feito usando:
 - MySQL Workbench 6.2
 - MySQL Community Server 5.6.12
 
-### Banco de Dados
+O repositório possui duas pastas:
+
+- database: scripts, modelos e demais arquivos referentes ao banco de dados.
+- xyinc: projeto Java contendo dois módulos, sendo um para acesso ao banco de dados e o outro a camada de serviços.
+
+O projeto Java deve ser importado para dentro do Eclipse.
+Os documentos referentes ao banco de dados devem ser usados para a criação e configuração de acesso ao mesmo, conforme será mencionado ao longo deste documento.
+
+### II. Banco de Dados
 
 Crie os usuários no banco de dados usando o script:
 
@@ -21,13 +29,13 @@ Crie a tabela no banco de dados usando o script:
 
 - database/Zup_XYInc_DDL.sql
 
-### GlassFish
+### III. GlassFish
 
 Crie as configurações de "JDBC Connection Pools" e "JDBC Resources" conforme descrito no arquivo:
 
 - database/Zup_XYInc_config.txt
 
-### Serviços REST + JSON
+### IV. Serviços REST + JSON
 
 São três serviços REST + JSON, conforme descrito abaixo:
 
@@ -107,7 +115,7 @@ Status Codes:
 - 400: parâmetro inválido ou não informado (x, y ou d-max)
 ```
 
-### Resposta de Erro
+### V. Resposta de Erro
 
 As respostas diferentes de sucesso são padronizadas em um JSON com código de erro e uma mensagem, conforme exemplos a seguir:
 ```sh
@@ -125,3 +133,4 @@ Status: 405
 Content-Type: application/json;charset=utf-8
 Body: {"errorCode":405,"message":"METHOD_NOT_ALLOWED"}
 ```
+Esse formato de erro vale para o acesso a qualquer recurso dentro de "http://localhost:8080/xyincWeb/rest/".

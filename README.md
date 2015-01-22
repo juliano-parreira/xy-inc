@@ -31,7 +31,7 @@ Crie as configurações de "JDBC Connection Pools" e "JDBC Resources" conforme d
 
 São três serviços REST + JSON, conforme descrito abaixo:
 
-1. Cadastro de POIs:
+##### 1. Cadastro de POIs:
 
 O cadastro usa método POST e o POI deve ser informado como JSON no corpo da requisição.
 Em caso de sucesso, o serviço retorna o POI informado na requisição com o ID de registro no BD.
@@ -50,10 +50,12 @@ Content-Type: application/json;charset=utf-8
 Body: {"id":10,"name":"Local","positionX":10,"positionY":20}
 ```
 Status Codes:
-- 201: POI cadastrado
-- 400: parâmetro inválido ou não informado (POI)
+```sh
+  - 201: POI cadastrado
+  - 400: parâmetro inválido ou não informado (POI)
+```
 
-2. Listar todos os POIs:
+##### 2. Listar todos os POIs:
 
 A listagem usa método GET e nenhum parâmetro.
 O serviço retorna JSON com a lista de POIs, caso exista algum.
@@ -71,10 +73,12 @@ Content-Type: application/json;charset=utf-8
 Body: [{"id":1,"name":"Lanchonete","positionX":27,"positionY":12},...,{"id":10,"name":"Park","positionX":58,"positionY":56}]
 ```
 Status Codes:
-- 200: lista de POIs encontrados
-- 404: nenhum POI encontrado
+```sh
+  - 200: lista de POIs encontrados
+  - 404: nenhum POI encontrado
+```
 
-3. Listar os POIs por proximidade:
+##### 3. Listar os POIs por proximidade:
 
 A listagem usa método GET e requer parâmetros obrigatórios:
 
@@ -97,9 +101,11 @@ Content-Type: application/json;charset=utf-8
 Body: [{"id":6,"name":"Supermercado","positionX":23,"positionY":6,"distance":5.0},...,{"id":5,"name":"Pub","positionX":12,"positionY":8,"distance":8.2}]
 ```
 Status Codes:
-- 200: lista de POIs e distâncias encontrados
-- 404: nenhum POI encontrado
-- 400: parâmetro inválido ou não informado (x, y ou d-max)
+```sh
+  - 200: lista de POIs e distâncias encontrados
+  - 404: nenhum POI encontrado
+  - 400: parâmetro inválido ou não informado (x, y ou d-max)
+```
 
 ### Resposta de Erro
 
